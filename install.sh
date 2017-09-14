@@ -15,7 +15,8 @@ yum -y install wget ntp
 #found at http://www.rsyslog.com/download/
 
 wget http://rpms.adiscon.com/rsyslogall.repo
-
+rpm --import http://rpms.adiscon.com/RPM-GPG-KEY-Adiscon
+sed -i s/repo_gpgcheck\=1/repo_gpgcheck\=0/g /etc/yum.conf 
 echo "	Move old rsyslog configurations"
 mkdir /etc/rsyslog.d/olde
 mv /etc/rsyslog.d/*.conf /etc/rsyslog.d/olde
