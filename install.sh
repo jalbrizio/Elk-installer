@@ -7,7 +7,7 @@ setenforce 0
 echo "temperarily disable iptables for the install"
 iptables -F
 echo "make sure your server is uptodate"
-yum -y update`
+yum -y update
 echo "Install RSYSLOG Repo and update to latest RSYSLOG"
 yum -y install wget ntp
 
