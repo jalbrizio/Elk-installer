@@ -19,7 +19,7 @@ yum -y update
 
 git clone https://github.com/philhagen/sof-elk.git /usr/local/sof-elk/
 find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/\\/opt/\\/usr\\/share/g
-yum -y install filebeat heartbeat metricbeat packetbeat logstash java-1.8.0-openjdk-devel
+yum -y install filebeat heartbeat metricbeat packetbeat logstash java-1.8.0-openjdk-devel unzip
 ln -s /usr/local/sof-elk/configfiles/* /etc/logstash/conf.d/
 ln -s  /usr/local/sof-elk/supporting-scripts/* /usr/local/sbin/
 /usr/share/logstash/bin/logstash-plugin install logstash-filter-grok
@@ -30,5 +30,13 @@ sudo ln -s /etc/metricbeat/metricbeat.template-es2x.json /usr/share/metricbeat/b
 sudo ln -s /etc/metricbeat/metricbeat.template-es6x.json /usr/share/metricbeat/bin/
 nohup sudo /usr/share/metricbeat/bin/metricbeat -e -c /etc/metricbeat/metricbeat.full.yml  -setup &
 ##
+#wget https://pypi.python.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip
+wget -O /usr/local/src/setuptools-36.5.0.zip  https://pypi.python.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip
+#unzip setuptools-36.5.0.zip
+unzip /usr/local/src/setuptools-36.5.0.zip
+unzip /usr/local/src/setuptools-36.5.0.zip -d /usr/local/src/
+python /usr/local/src/setuptools-36.5.0/easy_install.py -U setuptools
+pip install -r python-freez2.txt
+#pip install --upgrade pip
 # load sof elk dashboards
 #/usr/local/sof-elk/supporting-scripts/load_all_dashboards.sh
