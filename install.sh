@@ -304,6 +304,7 @@ then
 	fi
 	firewall-cmd --permanent --add-port=514/tcp
 	firewall-cmd --permanent --add-port=514/udp
+	firewall-cmd --permanent --add-port=22/tcp
 	firewall-cmd --reload
 fi
 systemctl status iptables | grep ": active" >& /dev/null
@@ -314,11 +315,13 @@ then
 		sed '/-A INPUT -j REJECT/i\
 -A INPUT -m state --state NEW -m tcp p -tcp --dport 5601 -j ACCEPT\n\
 -A INPUT -m state --state NEW -m tcp p -tcp --dport 514 -j ACCEPT\n\
+-A INPUT -m state --state NEW -m tcp p -tcp --dport 22 -j ACCEPT\n\
 -A INPUT -m state --state NEW -m udp p -udp --dport 514 -j ACCEPT' /etc/sysconfig/iptables > /tmp/iptables
 	else
 		sed '/-A INPUT -j REJECT/i\
 -A INPUT -m state --state NEW -m tcp p -tcp --dport 443 -j ACCEPT\n\
 -A INPUT -m state --state NEW -m tcp p -tcp --dport 514 -j ACCEPT\n\
+-A INPUT -m state --state NEW -m tcp p -tcp --dport 22 -j ACCEPT\n\
 -A INPUT -m state --state NEW -m udp p -udp --dport 514 -j ACCEPT' /etc/sysconfig/iptables > /tmp/iptables
 	fi
 	mv /tmp/iptables /etc/sysconfig
