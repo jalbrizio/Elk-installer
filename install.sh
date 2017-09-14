@@ -66,11 +66,11 @@ grep imjournal /etc/rsyslog.conf > /dev/null
 if [ $? != 0 ]
 then
 	# Edit Rsyslog to add in imjournal
-	sed "/immark/a\
+	sed -i "s/immark/a\
 module(load=\"imjournal\")
 $IMUXSockRateLimitInterval 0
-$IMJournalRatelimitInterval 0" < /etc/rsyslog.conf > /tmp/rsyslog.conf
-	mv /tmp/rsyslog.conf /etc/rsyslog.conf
+$IMJournalRatelimitInterval 0"  /etc/rsyslog.conf
+#	mv /tmp/rsyslog.conf /etc/rsyslog.conf
 fi
 
 echo "Disable RateLimit for Journald for RSYSLOG imjournal"
@@ -90,15 +90,15 @@ grep "\#module(load=\"imudp\")" /etc/rsyslog.conf > /dev/null
 if [ $? = 0 ]
 then
 	# Edit Rsyslog to enable UDP
-	sed "s/#module(load=\"imudp\")/module(load=\"imudp\")/" < /etc/rsyslog.conf > /tmp/rsyslog.conf
-	sed "s/#input(type=\"imudp\"/input(type=\"imudp\"/" < /tmp/rsyslog.conf > /etc/rsyslog.conf
+	sed -i s/#module\(load=\"imudp\"\)/module\(load=\"imudp\"\)/  /etc/rsyslog.conf
+	sed -i s/#input\(type=\"imudp\"/input\(type=\"imudp\"/ /etc/rsyslog.conf
 fi
 grep "\#module(load=\"imtcp\")" /etc/rsyslog.conf > /dev/null
 if [ $? = 0 ]
 then
 	# Edit Rsyslog to enable TCP
-	sed "s/#module(load=\"imtcp\")/module(load=\"imtcp\")/" < /etc/rsyslog.conf > /tmp/rsyslog.conf
-	sed "s/#input(type=\"imtcp\"/input(type=\"imtcp\"/" < /tmp/rsyslog.conf > /etc/rsyslog.conf
+	sed -i s/#module\(load=\"imtcp\"\)/module\(load=\"imtcp\"\)/  /etc/rsyslog.conf
+	sed -i s/#input\(type=\"imtcp\"/input\(type=\"imtcp\"/ /etc/rsyslog.conf
 fi
 
 echo "Create ElasticSearch Configuration for RSYSLOG"
