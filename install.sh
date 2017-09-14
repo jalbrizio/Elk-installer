@@ -17,7 +17,8 @@ iptables -F
 echo "make sure your server is uptodate"
 yum -y update
 echo "Install RSYSLOG Repo and update to latest RSYSLOG"
-yum -y install wget ntp
+yum -y install wget ntp mlocate
+updatedb
 
 #Rsyslog author: Rainer Gerhards (rgerhards@adiscon.com)
 #found at http://www.rsyslog.com/download/
