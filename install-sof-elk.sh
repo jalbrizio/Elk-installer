@@ -32,7 +32,7 @@ nohup sudo /usr/share/metricbeat/bin/metricbeat -e -c /etc/metricbeat/metricbeat
 ##
 wget -O /usr/local/src/setuptools-36.5.0.zip  https://pypi.python.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip
 unzip /usr/local/src/setuptools-36.5.0.zip -d /usr/local/src/
-python /usr/local/src/setuptools-36.5.0/easy_install.py -U setuptools
+yes | pip uninstall setuptools
 pip install --upgrade pip
 python /usr/local/src/setuptools-36.5.0/easy_install.py -U setuptools
 pip install -r python-freez2.txt
