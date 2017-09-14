@@ -7,6 +7,8 @@
 # Last modified date 09/14/2017
 #
 #
+echo "create data directory"
+mkdir /data
 echo "set vim to use vi"
 alias vim=vi
 echo "check selinux and temperarily disable it while doing the install."
@@ -17,7 +19,7 @@ iptables -F
 echo "make sure your server is uptodate"
 yum -y update
 echo "Install RSYSLOG Repo and update to latest RSYSLOG"
-yum -y install wget ntp mlocate
+yum -y install wget ntp mlocate net-tools
 updatedb
 
 #Rsyslog author: Rainer Gerhards (rgerhards@adiscon.com)
@@ -175,7 +177,7 @@ then
 	chown elasticsearch.elasticsearch /data
 else
 	echo "ERROR: NEED /data repository"
-	exit
+	
 fi
 
 echo "Setup ElasticSearch Configuration"
