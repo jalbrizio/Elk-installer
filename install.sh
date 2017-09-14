@@ -30,8 +30,8 @@ echo "Install ElasticSearch/Kibana Repo 5.x and update to latest"
 rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 cat > /etc/yum.repos.d/elastic.co.repo << EOF
 
-[elasticsearch=and-kibana-5.x]
-name=elastic.co repository for 5.x packages
+[elastic.co-5.x]
+name=elastic.co repository for 5.x elasticsearch and kibana packages
 baseurl=https://artifacts.elastic.co/packages/5.x/yum
 gpgcheck=1
 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
