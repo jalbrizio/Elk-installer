@@ -20,7 +20,7 @@ iptables -F
 echo "make sure your server is uptodate"
 yum -y update
 echo "Install RSYSLOG Repo and update to latest RSYSLOG"
-yum -y install wget ntp mlocate net-tools
+yum -y install wget ntp mlocate net-tools jq
 updatedb
 
 #Rsyslog author: Rainer Gerhards (rgerhards@adiscon.com)
