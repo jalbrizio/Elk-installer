@@ -214,7 +214,8 @@ path.data: /data
 #
 # Lock the memory on startup:
 #
-bootstrap.mlockall: true
+#bootstrap.mlockall: true
+bootstrap.memory_lock: true
 #
 # Make sure that the \`ES_HEAP_SIZE\` environment variable is set to about half the memory
 # available on the system and that the owner of the process is allowed to use this limit.
