@@ -144,8 +144,7 @@ echo "Install Python-PIP for Curator"
 rpm -qa |grep " epel-release " >> /dev/null
 if [ $? != 0 ]
 then
-	wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	rpm -ivh epel-release-latest-7.noarch.rpm
+	yum -y install epel-release
 fi
 yum -y install python-pip
 
