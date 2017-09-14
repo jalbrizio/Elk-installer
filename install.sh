@@ -14,6 +14,7 @@ alias vim=vi
 echo "check selinux and temperarily disable it while doing the install."
 getenforce
 setenforce 0
+sed -i s/SELINUX\=enforcing/SELINUX\=permissive/g /etc/yum.conf 
 echo "temperarily disable iptables for the install"
 iptables -F
 echo "make sure your server is uptodate"
@@ -313,6 +314,7 @@ then
 	else
 		firewall-cmd --permanent --add-port=443/tcp
 	fi
+        firewall-cmd --permanent --add-port=5601/tcp
 	firewall-cmd --permanent --add-port=514/tcp
 	firewall-cmd --permanent --add-port=514/udp
 	firewall-cmd --permanent --add-port=22/tcp
