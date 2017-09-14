@@ -18,4 +18,4 @@ echo "make sure your server is uptodate"
 yum -y update
 
 git clone https://github.com/philhagen/sof-elk.git /usr/local/sof-elk/
-
+find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/\\/opt/\\/usr\\/share/g
