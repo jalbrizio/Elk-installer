@@ -19,3 +19,5 @@ yum -y update
 
 git clone https://github.com/philhagen/sof-elk.git /usr/local/sof-elk/
 find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/\\/opt/\\/usr\\/share/g
+yum install filebeat heartbeat metricbeat packetbeat logstash
+ln -s /usr/local/sof-elk/configfiles/* /etc/logstash/conf.d/
