@@ -1,8 +1,8 @@
-  #    Elk-installer
-** Elk Redhat install **
+  #    Elk-installer
+## Elk Redhat install
 
 
-# to install elk on CentOS
+__to install elk on CentOS__
 # first install git then clone this repo
 # to do this run
 sudo yum install git
