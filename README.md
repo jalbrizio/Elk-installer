@@ -1,18 +1,18 @@
-  #    Elk-installer
-## Elk Redhat install
+ Ek-installer 
+Elk Redhat install
 
 
 __to install elk on CentOS__
-# first install git then clone this repo
-# to do this run
+__irst install git then clone this repo__
+__to do this run__
 sudo yum install git
-# then
+__then__
 sudo git clone https://github.com/jalbrizio/Elk-installer.git /usr/local/src/Elk-installer
-# once you have it downloaded sudo to root then run the install.sh
+__once you have it downloaded sudo to root then run the install.sh__
 sudo su -
 cd /usr/local/src/Elk-installer
 chmod +x ./installer*
 ./installer.sh
-# now if you want the dashboards 
+__now if you want the dashboards __
  ./install-sof-elk.sh
-# thats it so far. 
+__thats it so far. __
