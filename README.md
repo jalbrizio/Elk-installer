@@ -24,7 +24,7 @@ __once you have it downloaded sudo to root then run the install.sh__
 
 `chmod +x ./install*`
 
-`./installer.sh`
+`./install.sh`
 
 __now if you want the dashboards __
 
