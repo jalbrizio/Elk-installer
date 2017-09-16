@@ -12,15 +12,15 @@ __now disable your firewall (it will get turned back on in the script)__
 
 `sudo iptables -F`
 
-__ find your ip address __
+__find your ip address__
 
 `ip addr`
 
-__ Next ssh to your server__
+__Next ssh to your server__
 
 `ssh username@x.x.x.x`
 
-__ Now that you are logged in properly, install git then clone this repo__
+__Now that you are logged in properly, install git then clone this repo__
 
 __to do this run__
 
