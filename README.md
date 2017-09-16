@@ -4,11 +4,11 @@
 
 ## Elk Redhat install
 
-__to install elk on CentOS__
+__ to install elk on CentOS __
 
 __ if you are using a vm either forward ssh and 5601 to the vm or set the vm network addapter to bridged. __
 
-__now disable your firewall (it will get turned back on in the script.__
+__ now disable your firewall (it will get turned back on in the script. __
 
 `sudo iptables -F`
 
