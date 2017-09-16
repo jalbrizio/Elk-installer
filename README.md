@@ -40,9 +40,9 @@ __once you have it downloaded sudo to root then run the install.sh__
 
 `./install.sh`
 
-__now if you want the dashboards __
+__now if you want the dashboards__
 
 `./install-sof-elk.sh`
 
-__now if you want to access
-__thats it so far. __
+__now if you want to access__
+__thats it so far__
