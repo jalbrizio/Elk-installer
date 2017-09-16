@@ -6,7 +6,18 @@
 
 __to install elk on CentOS__
 
-__first install git then clone this repo__
+__ if you are using a vm either forward ssh and 5601 to the vm or set the vm network addapter to bridged. __
+
+__now disable your firewall (it will get turned back on in the script.__
+
+`sudo iptables -F`
+__ find your ip address __
+`ip addr`
+__ Next ssh to your server__
+
+`ssh username@x.x.x.x`
+
+__ Now that you are logged in properly, install git then clone this repo__
 
 __to do this run__
 
@@ -30,4 +41,5 @@ __now if you want the dashboards __
 
 `./install-sof-elk.sh`
 
+__now if you want to access
 __thats it so far. __
