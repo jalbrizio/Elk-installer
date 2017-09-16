@@ -45,5 +45,9 @@ __now if you want the dashboards__
 `./install-sof-elk.sh`
 
 __now if you want to access the webpage openyour browser and enter the ip:5601__
+
 `x.x.x.x:5601`
+
 __thats it so far__
+
+
