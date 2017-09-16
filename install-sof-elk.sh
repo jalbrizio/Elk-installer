@@ -19,7 +19,7 @@ yum -y update
 
 git clone https://github.com/philhagen/sof-elk.git /usr/local/sof-elk/
 find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/\\/opt/\\/usr\\/share/g
-yum install filebeat heartbeat metricbeat packetbeat logstash
+yum -y install filebeat heartbeat metricbeat packetbeat logstash java-1.8.0-openjdk-devel
 ln -s /usr/local/sof-elk/configfiles/* /etc/logstash/conf.d/
 ln -s  /usr/local/sof-elk/supporting-scripts/* /usr/local/sbin/
 /usr/share/logstash/bin/logstash-plugin install logstash-filter-grok
@@ -29,4 +29,6 @@ sudo ln -s /etc/metricbeat/metricbeat.template.json /usr/share/metricbeat/bin/
 sudo ln -s /etc/metricbeat/metricbeat.template-es2x.json /usr/share/metricbeat/bin/
 sudo ln -s /etc/metricbeat/metricbeat.template-es6x.json /usr/share/metricbeat/bin/
 nohup sudo /usr/share/metricbeat/bin/metricbeat -e -c /etc/metricbeat/metricbeat.full.yml  -setup &
-
+##
+# load sof elk dashboards
+#/usr/local/sof-elk/supporting-scripts/load_all_dashboards.sh
