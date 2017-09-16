@@ -22,7 +22,7 @@ __once you have it downloaded sudo to root then run the install.sh__
 
 `cd /usr/local/src/Elk-installer`
 
-`chmod +x ./installer*`
+`chmod +x ./install*`
 
 `./installer.sh`
 
