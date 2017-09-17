@@ -48,6 +48,16 @@ __now if you want to access the webpage openyour browser and enter the ip:5601__
 
 `x.x.x.x:5601`
 
+__If you want to cluster the elastic stack, them edit the elasticsearch.yml file__
+
+`vim /etc/elasticsearch/elasticsearch.yml`
+
+__now find the line that looks like #discovery.zen.ping.unicast.hosts: ["host1", "host2"]__ 
+
+__and uncomment it, then change the hosts to the ip addresses of your elastic servers__
+
+`sudo systemctl restart elasticsearch.service`
+
 __thats it so far__
 
 
