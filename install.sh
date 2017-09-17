@@ -206,7 +206,7 @@ cluster.name: elasticsearch
 #
 # Use a descriptive name for the node:
 #
-#node.name: primary
+node.name: ${HOSTNAME}
 #
 # Add custom attributes to the node:
 #
@@ -227,8 +227,9 @@ path.data: /data
 #
 # Lock the memory on startup:
 #
-#bootstrap.mlockall: true
-bootstrap.memory_lock: true
+## Depreciated -- # bootstrap.mlockall: true
+#uncomment below when you know how much memory you will use
+#bootstrap.memory_lock: true
 #
 # Make sure that the \`ES_HEAP_SIZE\` environment variable is set to about half the memory
 # available on the system and that the owner of the process is allowed to use this limit.
@@ -239,7 +240,7 @@ bootstrap.memory_lock: true
 #
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
-# network.host: 192.168.0.1
+network.host: "0.0.0.0"
 #
 # Set a custom port for HTTP:
 #
@@ -253,7 +254,7 @@ bootstrap.memory_lock: true
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-# discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+#discovery.zen.ping.unicast.hosts: ["host1", "host2"]
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
