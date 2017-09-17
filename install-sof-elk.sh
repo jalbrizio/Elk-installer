@@ -35,6 +35,10 @@ unzip /usr/local/src/setuptools-36.5.0.zip -d /usr/local/src/
 yes | pip uninstall setuptools
 pip install --upgrade pip
 python /usr/local/src/setuptools-36.5.0/easy_install.py -U setuptools
+sleep 3
+pip install --upgrade pip
 pip install -r python-freez2.txt
 # load sof elk dashboards
+systemctl enable metricbeat.service
+systemctl restart metricbeat.service
 #/usr/local/sof-elk/supporting-scripts/load_all_dashboards.sh
