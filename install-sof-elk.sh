@@ -41,5 +41,14 @@ pip install -r python-freez2.txt
 # load sof elk dashboards
 systemctl enable metricbeat.service
 systemctl restart metricbeat.service
+
+sudo systemctl enable packetbeat.service
+sudo systemctl enable heartbeat.service
+sudo systemctl enable filebeat.service
+
+sudo systemctl restart packetbeat.service
+sudo systemctl restart heartbeat.service
+sudo systemctl restart filebeat.service
+
 echo "It would be best to reboot now but thats up to you"
 #/usr/local/sof-elk/supporting-scripts/load_all_dashboards.sh
