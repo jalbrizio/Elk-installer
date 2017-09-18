@@ -58,6 +58,10 @@ __and uncomment it, then change the hosts to the ip addresses of your elastic se
 
 `sudo systemctl restart elasticsearch.service`
 
+
+__If you want netflow data now you can point your router to one of these server over port 9995
+If you use DDWRT go to Services and scroll down to the RFlow  section__
+
 __thats it so far__
 
 
