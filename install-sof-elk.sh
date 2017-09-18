@@ -28,7 +28,7 @@ ln -s /usr/local/sof-elk/configfiles/*syslog* /etc/logstash/conf.d/
 echo"installing the relp logstash plogin so the syslog logstash setting work"
 /usr/share/logstash/bin/logstash-plugin install logstash-input-relp
 echo "linking the syslog-httpdlog configs to logstash"
-ln -s /usr/local/sof-elk/configfiles/*httplog* /etc/logstash/conf.d/
+ln -s /usr/local/sof-elk/configfiles/*httpdlog* /etc/logstash/conf.d/
 
 echo "linking the supporting scripts to the proper location"
 ln -s  /usr/local/sof-elk/supporting-scripts/* /usr/local/sbin/
