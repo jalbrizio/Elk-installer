@@ -23,6 +23,11 @@ echo "installing the rpms needed for beats to work"
 yum -y install filebeat heartbeat metricbeat packetbeat logstash java-1.8.0-openjdk-devel unzip jq
 echo "linking the netflow configs to logstash"
 ln -s /usr/local/sof-elk/configfiles/*netflow* /etc/logstash/conf.d/
+echo "linking the syslog configs to logstash"
+ln -s /usr/local/sof-elk/configfiles/*syslog* /etc/logstash/conf.d/
+echo"installing the relp logstash plogin so the syslog logstash setting work"
+/usr/share/logstash/bin/logstash-plugin install logstash-input-relp
+
 echo "linking the supporting scripts to the proper location"
 ln -s  /usr/local/sof-elk/supporting-scripts/* /usr/local/sbin/
 ##
