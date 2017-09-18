@@ -62,6 +62,11 @@ __and uncomment it, then change the hosts to the ip addresses of your elastic se
 __If you want netflow data now you can point your router to one of these server over port 9995
 If you use DDWRT go to Services and scroll down to the RFlow  section__
 
+__If you want syslog data now you can point your router or syslog servers to one of these server over port 5514
+If you use DDWRT go to Services and scroll down to the syslog  section enter the server-ip:5514__
+
+
+
 __thats it so far__
 
 
