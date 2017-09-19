@@ -9,8 +9,6 @@
 #
 echo "create data directory"
 mkdir /data
-echo "set vim to use vi"
-alias vim=vi
 echo "check selinux and temperarily disable it while doing the install."
 getenforce
 setenforce 0
@@ -20,7 +18,7 @@ iptables -F
 echo "make sure your server is uptodate"
 yum -y update
 echo "Install RSYSLOG Repo and update to latest RSYSLOG"
-yum -y install wget ntp mlocate net-tools jq java-1.8.0-openjdk-devel unzip python-devel kernel-devel
+yum -y install wget ntp vim mlocate net-tools jq java-1.8.0-openjdk-devel unzip python-devel kernel-devel
 yum -y groupinstall "Development Tools"
 updatedb
 
