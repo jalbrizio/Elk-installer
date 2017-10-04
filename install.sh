@@ -11,6 +11,8 @@ echo "create data directory"
 mkdir /data
 echo "check selinux and temperarily disable it while doing the install."
 getenforce
+# set nis to be allowed
+setsebool -P nis_enabled 1
 setenforce 0
 sed -i s/SELINUX\=enforcing/SELINUX\=permissive/g /etc/yum.conf 
 echo "temperarily disable iptables for the install"
@@ -358,6 +360,8 @@ sysctl -p
 systemctl daemon-reload
 systemctl enable elasticsearch.service
 systemctl enable kibana.service
+systemctl enable systemd-journald.service
+systemctl enable rsyslog.service
 systemctl restart systemd-journald.service
 systemctl restart rsyslog.service
 systemctl restart elasticsearch.service

@@ -19,6 +19,7 @@ yum -y update
 echo "pulling the latest sof-elk repo"
 git clone https://github.com/philhagen/sof-elk.git /usr/local/sof-elk/
 find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/\\/opt/\\/usr\\/share/g
+find /usr/local/sof-elk/ | grep \\. | egrep -v "\/$|.git"  | xargs sed -i s/darkTheme\\\\\"\:true/darkTheme\\\\\"\:false/g
 echo "installing the rpms needed for beats to work"
 yum -y install filebeat heartbeat metricbeat packetbeat logstash java-1.8.0-openjdk-devel unzip jq
 echo "linking the netflow configs to logstash"
@@ -76,6 +77,15 @@ systemctl restart metricbeat.service
 systemctl restart packetbeat.service
 systemctl restart heartbeat.service
 systemctl restart filebeat.service
+
+echo "set the firewall rules to allow incomming connections for logs to be imported"
+
+firewall-cmd --permanent --add-port=5514/tcp
+firewall-cmd --permanent --add-port=5515/tcp
+firewall-cmd --permanent --add-port=5516/tcp
+firewall-cmd --permanent --add-port=5517/tcp
+firewall-cmd --permanent --add-port=9995/tcp
+firewall-cmd --reload
 
 echo "It would be best to reboot now but thats up to you"
 # load sof elk dashboards
