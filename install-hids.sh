@@ -29,3 +29,23 @@ systemctl status wazuh-api
 systemctl enable wazuh-manager
 systemctl enable wazuh-api
 systemctl restart filebeat.service
+
+curl https://raw.githubusercontent.com/wazuh/wazuh-kibana-app/2.1/server/startup/integration_files/template_file.json | curl -XPUT 'http://localhost:9200/_template/wazuh' -H 'Content-Type: application/json' -d @-
+
+
+curl https://raw.githubusercontent.com/wazuh/wazuh-kibana-app/2.1/server/startup/integration_files/alert_sample.json | curl -XPUT "http://localhost:9200/wazuh-alerts-"`date +%Y.%m.%d`"/wazuh/sample" -H 'Content-Type: application/json' -d @-
+
+/usr/share/kibana/bin/kibana-plugin install https://packages.wazuh.com/wazuhapp/wazuhapp.zip
+
+#If you have an older version of kibana go https://github.com/wazuh/wazuh-kibana-app and pick your version
+
+#/usr/share/kibana/bin/kibana-plugin install https://packages.wazuh.com/wazuhapp/wazuhapp-2.1.1_5.6.1.zip
+
+sudo systemctl restart kibana
+
+#
+# Now follow the instructions here https://documentation.wazuh.com/current/installation-guide/installing-elastic-stack/connect_wazuh_app.html
+# add firewall ports to allow incommint connections.
+firewall-cmd --permanent --add-port=1514/udp
+firewall-cmd --reload
+
