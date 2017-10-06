@@ -57,3 +57,6 @@ sudo node htpasswd -c user $1 $2
 
 curl -so /etc/logstash/conf.d/01-wazuh.conf https://raw.githubusercontent.com/wazuh/wazuh/2.0/extensions/logstash/01-wazuh.conf
 curl -so /etc/logstash/wazuh-elastic5-template.json https://raw.githubusercontent.com/wazuh/wazuh/2.0/extensions/elasticsearch/wazuh-elastic5-template.json
+cat ./filebeat.yml >> /etc/filebeat/filebeat.yml
+sudo systemctl restart filebeat
+echo "if filebeat didnt start port 5000 then run the plugin updater script to make sure all of the plugins got updated."
