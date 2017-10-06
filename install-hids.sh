@@ -47,5 +47,13 @@ sudo systemctl restart kibana
 # Now follow the instructions here https://documentation.wazuh.com/current/installation-guide/installing-elastic-stack/connect_wazuh_app.html
 # add firewall ports to allow incommint connections.
 firewall-cmd --permanent --add-port=1514/udp
+firewall-cmd --permanent --add-port=1515/udp
+firewall-cmd --permanent --add-port=5000/tcp
 firewall-cmd --reload
 
+cd /var/ossec/api/configuration/auth
+sudo node htpasswd -c user $1 $2
+
+
+curl -so /etc/logstash/conf.d/01-wazuh.conf https://raw.githubusercontent.com/wazuh/wazuh/2.0/extensions/logstash/01-wazuh.conf
+curl -so /etc/logstash/wazuh-elastic5-template.json https://raw.githubusercontent.com/wazuh/wazuh/2.0/extensions/elasticsearch/wazuh-elastic5-template.json
